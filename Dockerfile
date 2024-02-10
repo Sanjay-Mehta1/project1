@@ -2,17 +2,15 @@
 FROM devopsedu/webapp:latest
 
 # Set the working directory in the container
-WORKDIR /var/www/html
+#WORKDIR /var/www/html
 
 # Copy your PHP application code into the container
-RUN cd /tmp/
-RUN git clone https://github.com/edureka-devops/projCert.git
-COPY /tmp/ .
+COPY /opt/playbook/*.war /var/www/html
 
 # Install PHP extensions and other dependencies
-RUN apt-get update && \
-    apt-get install -y libpng-dev && \
-    docker-php-ext-install pdo pdo_mysql gd
+#RUN apt-get update && \
+ #   apt-get install -y libpng-dev && \
+  #  docker-php-ext-install pdo pdo_mysql gd
 
 # Expose the port Apache listens on
-EXPOSE 8090
+#EXPOSE 8090
